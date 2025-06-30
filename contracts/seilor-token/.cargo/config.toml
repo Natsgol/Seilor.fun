@@ -1,0 +1,25 @@
+[alias]
+wasm = "build --release --lib --target wasm32-unknown-unknown"
+unit-test = "test --lib"
+schema = "run --bin schema"
+integration-test = "test --lib integration_tests"
+
+[profile.release]
+codegen-units = 1
+opt-level = 3
+debug = false
+rpath = false
+lto = true
+debug-assertions = false
+overflow-checks = true
+
+[target.wasm32-unknown-unknown.dependencies]
+
+[build]
+target = "wasm32-unknown-unknown"
+
+[unstable]
+build-std = ["panic_abort", "std"]
+
+[target.wasm32-unknown-unknown]
+rustflags = ["-C", "link-arg=-s", "-C", "target-feature=-bulk-memory"]

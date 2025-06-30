@@ -9,19 +9,34 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@cosmjs/cosmwasm-stargate": "^0.33.1",
+    "@cosmjs/stargate": "^0.33.1",
+    "@keplr-wallet/types": "^0.12.248",
+    "@next/bundle-analyzer": "^15.3.4",
+    "@sei-js/core": "^3.2.1",
+    "@tanstack/react-query": "^5.81.5",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.3.0",
+    "axios": "^1.10.0",
+    "framer-motion": "^12.20.1",
+    "jest": "^30.0.3",
+    "lucide-react": "^0.525.0",
+    "next": "15.3.4",
+    "openai": "^5.8.2",
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
-    "next": "15.3.4"
+    "react-hot-toast": "^2.5.2",
+    "recharts": "^3.0.2"
   },
   "devDependencies": {
-    "typescript": "^5",
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/postcss": "^4",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "@tailwindcss/postcss": "^4",
-    "tailwindcss": "^4",
     "eslint": "^9",
     "eslint-config-next": "15.3.4",
-    "@eslint/eslintrc": "^3"
+    "tailwindcss": "^4",
+    "typescript": "^5"
   }
 }
