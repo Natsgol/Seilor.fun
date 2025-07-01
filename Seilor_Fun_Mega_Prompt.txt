@@ -1,0 +1,105 @@
+# Seilor.fun - Phase 5 Mega-Prompt: Project Reset & Rebuild
+
+## 1. Project Summary
+
+**Seilor.fun** is a decentralized application on the SEI blockchain that allows users to create, mint, and trade unique, AI-generated characters as tokens. The platform combines anime-inspired aesthetics with crypto-trading archetypes, creating a fun and engaging experience. The core of the platform is a bonding curve mechanism that determines the price of each character's token based on its supply.
+
+---
+
+## 2. Core Working Features & Components (To be Rebuilt)
+
+The following components and services have been successfully designed and tested. They should be recreated in the new project.
+
+### Frontend Components:
+
+*   **`WalletContext.tsx`**: A React context to manage wallet connections, address, and balance throughout the application.
+*   **`TradingInterface.tsx`**: A sophisticated UI for buying and selling character tokens.
+    *   Features: Buy/sell tabs, slippage tolerance controls, debounced trade calculations, price impact warnings, and animated UI elements.
+*   **`CharacterCreationForm.tsx`**: A multi-step form for creating new characters.
+    *   Flow: 1. Select Archetype -> 2. Customize Traits -> 3. Preview & Generate -> 4. Mint
+*   **`CharacterCard.tsx`**: A component to display a character's image, name, archetype, and key stats.
+*   **`EnhancedMarketplace.tsx`**: A component to display various market categories, such as "Top Gainers," "Top Losers," and "Newest Characters."
+*   **Supporting UI Components**: `PriceChart.tsx`, `OrderBook.tsx`, `TradeHistory.tsx`.
+
+### Backend Services:
+
+*   **`characterGenerationService.ts`**: A service that uses OpenAI (GPT-4 and DALL-E 3) to generate character personalities, backstories, and images based on user-selected archetypes and traits.
+*   **`bondingCurveService.ts`**: A service that encapsulates the logic for the bonding curve, including price calculations for buying and selling tokens.
+    *   Formula: `price = initial_price + (supply^1.5 * increment)`
+*   **`contractQueryService.ts`**: A service to fetch read-only data from the smart contract (e.g., price history, trade volume).
+
+### API Routes:
+
+*   `/api/characters/generate`: `POST` - To generate a new character with the `characterGenerationService`.
+*   `/api/characters/regenerate`: `POST` - To regenerate a character's image or backstory.
+*   `/api/characters/mint`: `POST` - To mint a newly created character as a token on the SEI blockchain.
+*   `/api/characters/market`: `GET` - To fetch platform-wide market data (top gainers, losers, etc.).
+*   `/api/characters/[id]/trade`: `POST` - To execute buy/sell trades for a specific character.
+
+---
+
+## 3. Key Mechanics & Logic
+
+*   **Character Archetypes**: Six distinct archetypes (e.g., "Diamond Hands," "FOMO Trader") that determine a character's base stats and trading style.
+*   **Bonding Curve**: The price of each character token is determined by a bonding curve, creating a dynamic and fair market.
+*   **Creator Royalties**: A percentage of every trade goes to the creator of the character (up to 20%).
+*   **Platform Fee**: A 10% fee on all trades to support the platform.
+*   **SEI Blockchain Integration**: All transactions (minting, buying, selling) are executed on the SEI blockchain.
+
+---
+
+## 4. Technical Stack (Dependencies to Install)
+
+*   **`next`**, **`react`**, **`react-dom`**, **`typescript`**
+*   **`tailwindcss`**, **`autoprefixer`**, **`postcss`**
+*   **`framer-motion`** (for animations)
+*   **`axios`** (for API requests)
+*   **`@cosmjs/stargate`**, **`@cosmjs/cosmwasm-stargate`** (for SEI blockchain interaction)
+*   **`@sei-js/core`**
+*   **`openai`** (for character generation)
+*   **`recharts`** (for price charts)
+*   **`lucide-react`** (for icons)
+*   **`react-hot-toast`** (for notifications)
+*   **`@next/bundle-analyzer`** (for performance analysis)
+*   **`jest`**, **`@testing-library/react`**, **`@testing-library/jest-dom`** (for testing)
+
+---
+
+## 5. Actionable Rebuild Plan
+
+### Step 1: Project Initialization
+
+1.  Create a new Next.js project with TypeScript and Tailwind CSS.
+2.  Install all the dependencies listed in the "Technical Stack" section.
+3.  Set up the basic project structure with `app`, `components`, `lib`, `contexts`, etc.
+
+### Step 2: Core Component & Context Creation
+
+1.  Create `app/contexts/WalletContext.tsx`.
+2.  Create `app/components/trading/TradingInterface.tsx` and its supporting components (`PriceChart.tsx`, etc.).
+3.  Create `app/components/characters/CharacterCreationForm.tsx` and its sub-components.
+4.  Create `app/components/characters/CharacterCard.tsx`.
+5.  Create `app/components/EnhancedMarketplace.tsx`.
+
+### Step 3: Backend Service & API Development
+
+1.  Create `app/lib/services/characterGenerationService.ts`.
+2.  Create `app/lib/services/bondingCurveService.ts`.
+3.  Create `app/lib/services/contractQueryService.ts`.
+4.  Implement all the API routes listed in the "API Routes" section, connecting them to the appropriate services.
+
+### Step 4: Smart Contract & Blockchain Integration
+
+1.  Develop the Rust smart contract for the character tokens, including the bonding curve and royalty logic.
+2.  Write deployment scripts for the contract.
+3.  Integrate the frontend with the deployed contract using `@cosmjs`.
+
+### Step 5: Testing & Polishing
+
+1.  Write comprehensive unit and integration tests for all components and services.
+2.  Perform end-to-end testing of the full user flow.
+3.  Optimize performance using the bundle analyzer and other tools.
+4.  Refine the UI/UX and add final visual polish.
+5.  Create a comprehensive `README.md` and other documentation.
+
+This mega-prompt provides a clear roadmap for rebuilding Seilor.fun on a clean and stable foundation, leveraging all the successful work we've accomplished so far. 
